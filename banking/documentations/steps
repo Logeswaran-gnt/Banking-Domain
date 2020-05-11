@@ -94,6 +94,9 @@ create user:
     >>> user.is_staff=True
     >>> user.save()
     ----------------------------------------
+    Users.objects.filter(name__contains='log')  #   __contains, __startswith, __endswith, __range
+    get vs filter?
+    Users.objects.order_by('name')  #all() with specific ordering
 
 
 
