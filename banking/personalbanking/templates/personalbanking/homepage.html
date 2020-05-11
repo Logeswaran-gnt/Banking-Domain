@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Banking</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type = "text/javascript" language = "javascript">
+
+    function validation(dp = 10){
+                <!--var un=document.getElementById("un").value;-->
+                $("#img").show();
+                $.ajax({
+                  method: "GET",
+                  url: "/api/cust",
+                  headers: {"Authorization": "Token d36fd1dffec5948a38c26005eb97981d1af97ce4"},
+                  data: { name: "lok" },
+                  success: function (data) {
+<!--                  alert(data[0].firstname);-->
+
+                            var customers = []
+                            for(var i=0; i<data.length; i++) {
+                                   let customer = [];
+                                   customer.push(data[i].firstname);
+                                   customer.push(data[i].lastname);
+                                   customers.push(customer);
+                                                              }
+
+                            var table = $('#example').DataTable( {
+                                    data: customers,
+                                    retrieve: true,
+                                    paging: true,
+                                    searching: true,
+                                    draw: false,
+                                    columns: [
+                                        { title: "firstname" },
+                                        { title: "lastname" },
+
+                                                ]
+                                            }
+                                            );
+
+                                                },//success completion
+
+                  error: function (data) {  alert(data.responseText); },
+
+                        })
+         }
+      </script>
+</head>
+<body>
+    {% extends 'personalbanking/bodyAfter.html' %}
+    {% load static %}
+    {% block content %}
+
+<div id="result" >
+    <button id="sub" onclick="validation()">Submit</button>
+    result
+    <table id="example" class="display" width="100%"></table>
+
+</div>
+    {% endblock %}
+
+</body>
+</html>

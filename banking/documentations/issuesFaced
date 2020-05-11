@@ -1,0 +1,30 @@
+1)Models field not showing-up in the admin portal
+    soln:
+    class Branch(models.Model):
+        id = models.AutoField(primary_key=True)
+        branch_name = models.CharField(default='Chennai', max_length=30, null=False)
+        address = models.CharField(max_length=30, null=False,default=None)
+        def __str__(self):
+            return f'{self.id} - {self.branch_name} -  {str(self.address)}
+    https://stackoverflow.com/questions/52342961/django-admin-all-the-contents-of-my-table-are-not-being-displayed-inline-issue
+
+2) Fetch the records from the foreignkey tables
+    https://django-book.readthedocs.io/en/latest/chapter10.html
+3) deleting migration files:
+    deleting migration file may cause issues. if we-dontcare-about-the-data/db-is-empty then drop-db/ create new is the solution.
+    drop-db: simply delete the db.sqlite3 file
+    create: automatically create in sqlite3
+
+4) Add-on: have one migration from the bunch of migrations files
+    mice-vignesh@micevignesh-ThinkPad-T430:~/Downloads/myprojects/banking/personalbanking$ python3 ../manage.py squashmigrations personalbanking 0002
+    Will squash the following migrations:
+     - 0001_initial
+     - 0002_auto_20200502_1031
+    Do you wish to proceed? [yN] y
+    Optimizing...
+      Optimized from 4 operations to 3 operations.
+    Created new squashed migration /home/mice-vignesh/Downloads/myprojects/banking/personalbanking/migrations/0001_squashed_0002_auto_20200502_1031.py
+      You should commit this migration but leave the old ones in place;
+      the new migration will be used for new installs. Once you are sure
+      all instances of the codebase have applied the migrations you squashed,
+      you can delete them.

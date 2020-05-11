@@ -1,0 +1,107 @@
+Initial:
+-------
+django-admin startproject banking
+cd banking/
+python3 manage.py startapp personalbanking
+python3 manage.py runserver 0:8000
+python3 manage.py createsuperuser
+    bankingadmin
+    adm1n
+    adm1n
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver 0:8000
+
+Models.py:
+---------
+create a model:
+    from django.core.validators import MaxValueValidator, MinValueValidator
+
+    # Create your models here.
+    class customer(models.Model):
+        ACCOUNT_CHOICES = (
+            ('SB', 'Savings Account'),
+            ('CA', 'Current Account')
+
+        )
+        firstname = models.CharField(max_length=30, null=False)
+        lastname = models.CharField(max_length=30,null=False)
+        account_type = models.CharField(max_length=2, default='SB', choices=ACCOUNT_CHOICES, null=False)
+        account_number = models.BigIntegerField(default=10, primary_key=True, null=False, validators=[MinValueValidator(1000000000), MaxValueValidator(100000000000)])
+    python3 manage.py makemigrations
+    python3 manage.py sqlmigrate personalbanking 0001
+        BEGIN;
+        --
+        -- Create model customer
+        --
+        CREATE TABLE "personalbanking_customer" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "firstname" varchar(30) NOT NULL, "lastname" varchar(30) NOT NULL);
+        COMMIT;
+
+
+Until we set primary to any field, the default primary-id will be exist.
+
+Register the created model in admin.py to make it visible in admin page
+    from .models import customer
+    admin.site.register(customer)
+    ----------------------------------------------------
+    OperationalError at /admin/personalbanking/customer/
+    no such table: personalbanking_customer
+    ----------------------------------------------------
+
+sqlite from commandline:
+    banking$ sqlite3 db.sqlite3
+    sqlite>.tables
+    sqlite>select * from django-migrations
+Models from django-admin commandline:chn = models.Branch(branch_name='Karur', address='karur')
+    $ python3 manage.py shell
+    >>> from personalbanking import models
+    >>> op = models.Branch.objects.all()
+    >>> op = models.Branch.objects.filter(branch_name__contains='veli' )
+    >>> op = models.Branch.objects.filter(Q(branch_name__contains='veli')|~Q(branch_name__contains='rai') )
+    >>> karur = models.Branch(branch_name='Karur', address='karur')
+    >>> karur.save()
+    >>> op.order_by('branch_name')
+    Record insertion:
+    >>> cust1 = models.Customer(account_number=9999999999, firstname='Poornima',lastname='Gunasekaran',account_type='SB', branch_id = 5)
+    >>> cust1.save()
+Read data from foreignkey table:
+    >>> cust = models.Customer.objects.all()
+    >>> cust[0].branch.address
+        'simmakal, madurai'
+Relationship:(Refine table structures and minimize redundant data)
+    one-one: one branch for one location
+    many-one: Many account holder for a branch(Foreign key)
+    one-many: one head-office to many branch
+    many-many: customers of a branch can adopt/have many loans(vehicle/personal/housing)
+
+
+
+    ----------------------------------------
+python3 ../manage.py shell
+    >>> from personalbanking import models
+    >>> newb =  models.Branch(branch_name='Chennai', address="Egmore, Chennai")
+    >>> newb.save()
+    >>> newc = models.Customer(account_number=10000000000,firstname='Logeswaran', lastname='Gunasekaran',account_type='SB',branch_id=1)
+    >>> newc.save()
+    ----------------------------------------
+    ----------------------------------------
+
+create user:
+    user@host> manage.py shell
+    >>> from django.contrib.auth.models import User
+    >>> user=User.objects.create_user('foo', password='bar')
+    >>> user.is_superuser=True
+    >>> user.is_staff=True
+    >>> user.save()
+    ----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
