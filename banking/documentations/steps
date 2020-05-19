@@ -68,6 +68,11 @@ Read data from foreignkey table:
     >>> cust = models.Customer.objects.all()
     >>> cust[0].branch.address
         'simmakal, madurai'
+
+    *** related_name=> (with the foreign key we can query 'reverse relationship' from branch obj we can call customer records)
+        br = models.Branch.objects.get(id=1000)
+        br.customer_set.all()
+    ****
 Relationship:(Refine table structures and minimize redundant data)
     one-one: one branch for one location
     many-one: Many account holder for a branch(Foreign key)
@@ -97,6 +102,12 @@ create user:
     Users.objects.filter(name__contains='log')  #   __contains, __startswith, __endswith, __range
     get vs filter?
     Users.objects.order_by('name')  #all() with specific ordering
+
+
+memcache:
+    pip3 install python-memcached
+    memcached
+    https://medium.com/@netfluff/memcached-for-django-ecedcb74a06d
 
 
 

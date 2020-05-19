@@ -1,0 +1,14 @@
+SCHEMA IN POSTGRES(SINGLE TABLE AND DIFFERENT SCHEMA FOR EACH TENANT):
+personalbanking=# create schema axiscustomer;
+personalbanking=# create table axiscustomer.customer(ID INT, NAME VARCHAR(70),AGE INT, PRIMARY KEY(ID));
+personalbanking=# insert into axiscustomer.customer (id,name,age) values (1,'Logeshwaran',32);
+personalbanking=# select * from axiscustomer.customer;
+
+personalbanking=# create schema sbicustomer;
+personalbanking=# create table sbicustomer.customer(ID INT, NAME VARCHAR(70),AGE INT, PRIMARY KEY(ID));
+personalbanking=# insert into sbicustomer.customer (id,name,age) values (1,'Logeshwaran',32);
+personalbanking=# select * from sbicustomer.customer;
+
+
+personalbanking=# with above as (delete from axiscustomer.customer where age>50 returning *) insert into sbicustomer.customer(select * from above);
+personalbanking=# with above as (select * from axiscustomer.customer where age>50) insert into sbicustomer.customer(select * from above);^C
