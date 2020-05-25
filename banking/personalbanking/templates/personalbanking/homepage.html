@@ -23,6 +23,7 @@
                             var customers = []
                             for(var i=0; i<data.length; i++) {
                                    let customer = [];
+                                   customer.push(data[i].account_number);
                                    customer.push(data[i].firstname);
                                    customer.push(data[i].lastname);
                                    customers.push(customer);
@@ -35,6 +36,7 @@
                                     searching: true,
                                     draw: false,
                                     columns: [
+                                        { title: "Account No." },
                                         { title: "firstname" },
                                         { title: "lastname" },
 
@@ -56,8 +58,8 @@
     {% block content %}
 
 <div id="result" >
-    <button id="sub" onclick="validation()">Submit</button>
-    result
+    <center><button id="sub" onclick="validation()" style="align:center">Show All Customers</button></center>
+
     <table id="example" class="display" width="100%"></table>
 
 </div>

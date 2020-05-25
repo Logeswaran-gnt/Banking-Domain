@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="889d35bc-db25-48bc-9fa9-bd3b0390af9d" name="Default Changelist" comment="First Commit">
-      <change afterPath="$PROJECT_DIR$/banking/api/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking/documentations/postgres_steps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking/personalbanking/test/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking/personalbanking/test/test_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking/tests/test_models.py" afterDir="false" />
+    <list default="true" id="889d35bc-db25-48bc-9fa9-bd3b0390af9d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banking/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/banking/.coverage" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banking/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/banking/api/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banking/banking/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/banking/banking/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banking/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/banking/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banking/documentations/steps" beforeDir="false" afterPath="$PROJECT_DIR$/banking/documentations/steps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banking/personalbanking/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/banking/personalbanking/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banking/personalbanking/templates/personalbanking/bodyAfter.html" beforeDir="false" afterPath="$PROJECT_DIR$/banking/personalbanking/templates/personalbanking/bodyAfter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banking/personalbanking/templates/personalbanking/bodyBefore.html" beforeDir="false" afterPath="$PROJECT_DIR$/banking/personalbanking/templates/personalbanking/bodyBefore.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banking/personalbanking/templates/personalbanking/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/banking/personalbanking/templates/personalbanking/homepage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +33,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/banking/personalbanking" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -57,6 +51,14 @@
       <option name="presentableId" value="Default" />
       <updated>1589181661013</updated>
     </task>
+    <task id="LOCAL-00001" summary="API: POST, DELETE&#10;MEMCACHE&#10;UNITTEST">
+      <created>1589873672619</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589873672619</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -73,12 +75,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
+    <MESSAGE value="API: POST, DELETE&#10;MEMCACHE&#10;UNITTEST" />
+    <option name="LAST_COMMIT_MESSAGE" value="API: POST, DELETE&#10;MEMCACHE&#10;UNITTEST" />
   </component>
   <component name="WindowStateProjectService">
     <state x="530" y="264" width="635" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589437576081">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="530" y="264" width="635" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1533.873@67.27.1533.873" timestamp="1589437576081" />
+    <state x="322" y="97" key="SettingsEditor" timestamp="1590382435555">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="322" y="97" key="SettingsEditor/67.27.1533.873@67.27.1533.873" timestamp="1590382435555" />
   </component>
 </project>

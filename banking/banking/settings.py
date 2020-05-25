@@ -78,7 +78,7 @@ LOGIN_URL = '/'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/mice-vignesh/Downloads/myprojects/banking/personalbanking/templates'],
+        'DIRS': ['/home/mice-vignesh/vigneshk/Banking-Domain/banking/banking/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -109,7 +109,7 @@ CACHES = {
         'LOCATION': '127.0.0.1:11211',
     }
 }
-CACHE_DURATION = 30
+CACHE_DURATION = 0
 
 
 # Password validation
