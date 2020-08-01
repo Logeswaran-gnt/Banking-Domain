@@ -17,7 +17,7 @@ from banking import settings
 from rest_framework.permissions import IsAuthenticated  # <-- Here
 
 class Customers(APIView):
-    permission_classes = (IsAuthenticated,)             # <-- And here
+    # permission_classes = (IsAuthenticated,)             # <-- And here
 
     def get(self, request):
         cache_key = 'AllCustomerReport'  # needs to be unique

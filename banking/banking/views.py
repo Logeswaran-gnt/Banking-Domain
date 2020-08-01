@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from api.serializers import CustomerSerializer
+from personalbanking.models import Customer
 
 # Create your views here.
 from django.http import HttpResponse
@@ -36,3 +38,10 @@ def home_user(request):
 def logout_user(request):
     logout(request)
     return redirect('/')
+
+def customer_list(request):
+    cust = Customer.objects.all()
+    # data = CustomerSerializer(cust, many=True).data
+    data=[{'a':'apple', 'b': 'banana'}, {'a':'animal', 'b': 'baffalo'}]
+    return render(request, 'banking/customer.html', {'data': data})
+

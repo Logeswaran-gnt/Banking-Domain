@@ -47,4 +47,6 @@ urlpatterns = [
     path('api/', include('api.urls')),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),  # <-- And here
     path('__debug__/', include(debug_toolbar.urls)),
+    path('cust', views.customer_list),
+
 ]
